@@ -1,0 +1,32 @@
+<html>
+    <body>
+        <form onsubmit="savetolocalstorage(event)">
+    <label> Name
+    </label>
+    <input type="text" name="username" required/>
+    <label>EmailId</label>
+    <input type="email" name="emailId" required/>
+    <button>Submit</button>
+    </form>
+    <ul id='ListOfUsers'></ul>
+    <script>
+        function savetolocalstorage(event){
+            event.preventDefault();
+            const name=event.target.username.value;
+            const email=event.target.emailId.value;
+            const Obj={
+                name,
+                email
+            }
+            localStorage.setItem(Obj.email, JSON.stringify(Obj))
+            showNewUserOnScreen(Obj)
+
+        }
+        function showNewUserOnScreen(user){
+            const parentNode=document.getElementById('ListOfUsers');
+            const childHTML='<li>${user.name}-${user.email} </li>'
+            parentNode.innerHTML=parentNode.innerHTML + childHTML;
+        }
+    </script>
+    </body>
+</html>
