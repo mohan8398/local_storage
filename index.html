@@ -1,0 +1,15 @@
+<title> Object in local storage-javascript</title>
+<body>
+    <h2> Object in local storage-javascript</h2>
+</body>
+<script type="text/javascript">
+    let myObj={
+        name:"mohan",
+        age:23
+    };
+
+    let myObj_serialized=JSON.stringify(myObj);
+    localStorage.setItem("myObj",myObj_serialized);
+    let myObj_deserialized=localStorage.getItem("myObj");
+    console.log(myObj_deserialized);
+</script>C:\Users\mohan\OneDrive\Desktop\New folder\index.html
